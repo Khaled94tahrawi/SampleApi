@@ -22,10 +22,13 @@ spec:
     image: bitnami/kubectl:latest
     command: ['cat']
     tty: true
-  volumes:
+    volumes:
   - name: docker-config
     secret:
       secretName: dockerhub-dockerconfigjson
+      items:
+        - key: .dockerconfigjson
+          path: config.json
 """
     }
   }
