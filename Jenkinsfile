@@ -19,9 +19,12 @@ spec:
     - name: docker-config
       mountPath: /kaniko/.docker
   - name: kubectl
-    image:  rancher/kubectl:v1.30.0
-    command: ['sleep']
-    args: ['99999']
+    image: alpine/k8s:1.30.4
+    command: ['cat']
+    tty: true
+    
+    
+  
   volumes:
   - name: docker-config
     secret:
